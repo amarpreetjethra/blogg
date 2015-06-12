@@ -38,3 +38,4 @@ gem 'strong_parameters'
 # To use debugger
 # gem 'debugger'
 gem "paperclip"
+gem 'sorcery'

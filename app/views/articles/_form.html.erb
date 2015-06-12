@@ -1,3 +1,6 @@
+
+<% if logged_in? %>
+
 <%= form_for(@article, :html => {:multipart => true}) do |f| %>
   <ul>
   <% @article.errors.full_messages.each do |error| %>
@@ -28,4 +31,5 @@
   <%= f.label :image, "Attach a New Image" %><br />
   <%= f.file_field :image %>
 </p>
+<% end %>
 <% end %>
