@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 	include ActiveModel::MassAssignmentSecurity
-	
+	attr_accessible :image
 	include ArticlesHelper
 	def show
 		@article = Article.find(params[:id])

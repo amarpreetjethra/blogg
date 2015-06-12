@@ -32586,3 +32586,2955 @@ Served asset /tags.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 09:12:10 +0530
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateArticles (20150608060826)
+Migrating to CreateComments (20150610131814)
+Migrating to CreateTags (20150611060605)
+Migrating to CreateTaggings (20150611060634)
+Migrating to AddPaperclipFieldsToArticle (20150612044709)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.0ms)[0m  ALTER TABLE "articles" ADD "image_file_name" varchar(255)
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "articles" ADD "image_content_type" varchar(255)[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "articles" ADD "image_file_size" integer
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "articles" ADD "image_updated_at" datetime[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20150612044709')
+  [1m[36m (124.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+
+
+Started GET "/articles" for 127.0.0.1 at 2015-06-12 11:07:19 +0530
+Connecting to database specified by database.yml
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" [0m
+  Rendered articles/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 174.0ms (Views: 122.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:19 +0530
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:19 +0530
+Served asset /articles.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /screen.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /comments.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /tags.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /articles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /comments.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /tags.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:20 +0530
+Served asset /application.js - 304 Not Modified (11ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:07:22 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (19.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (58.0ms)
+  Rendered articles/show.html.erb within layouts/application (228.0ms)
+Completed 200 OK in 273.0ms (Views: 239.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:23 +0530
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/articles/16/edit" for 127.0.0.1 at 2015-06-12 11:07:29 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered articles/edit.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 19.0ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:07:30 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 23.0ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:09 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16/edit" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered articles/edit.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 20.0ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /tags.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:12 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:13 +0530
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:13 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:13 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2015-06-12 11:11:37 +0530
+Processing by ArticlesController#new as HTML
+  Rendered articles/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 28.0ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:37 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:37 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:37 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:37 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:11:37 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:37 +0530
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:38 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:38 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:38 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:38 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:11:38 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:24:04 +0530
+Connecting to database specified by database.yml
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (9.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (49.0ms)
+  Rendered articles/show.html.erb within layouts/application (192.0ms)
+Completed 200 OK in 340.0ms (Views: 262.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /articles.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /tags.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /comments.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /screen.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /articles.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /comments.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /tags.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:05 +0530
+Served asset /application.js - 304 Not Modified (26ms)
+
+
+Started GET "/articles/16/edit" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered articles/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 22.0ms (Views: 18.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:14 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" 
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 12.0ms (Views: 11.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:26 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/18" for 127.0.0.1 at 2015-06-12 11:24:28 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "18"]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 18
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 18[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 18
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1
+  Rendered articles/_comment.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 49.0ms (Views: 44.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:28 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /screen.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /articles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:29 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/18/edit" for 127.0.0.1 at 2015-06-12 11:24:32 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "18"]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 18
+  Rendered articles/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 15.0ms (Views: 13.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:32 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /tags.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:33 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/53" for 127.0.0.1 at 2015-06-12 11:24:41 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"53"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "53"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 53
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 53[0m
+  Rendered articles/_comment.html.erb (0.0ms)
+  Rendered articles/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 27.0ms (Views: 24.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:41 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:41 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:41 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:41 +0530
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:41 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:24:41 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:42 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:42 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:42 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:42 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:24:42 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/53/edit" for 127.0.0.1 at 2015-06-12 11:25:22 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"53"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "53"]]
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 53[0m
+  Rendered articles/edit.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 31.0ms (Views: 27.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:22 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:22 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:23 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 44.0ms (Views: 40.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /screen.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:32 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/16/edit" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered articles/edit.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 27.0ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:25:38 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started PUT "/articles/16" for 127.0.0.1 at 2015-06-12 11:26:04 +0530
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kIA1Ygf94q/PtUr+E4oGxYcP3vgZe/8+d0jnpTpvPQY=", "article"=>{"title"=>"hey", "body"=>"gfhff", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x416ee60 @original_filename="beast.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"beast.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:C:/Users/jasbeer/AppData/Local/Temp/RackMultipart20150612-6776-u1v92p>>}, "commit"=>"Update Article", "id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 6.0ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: image):
+  app/controllers/articles_controller.rb:41:in `update'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.0ms)
+
+
+Started PUT "/articles/16" for 127.0.0.1 at 2015-06-12 11:28:59 +0530
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kIA1Ygf94q/PtUr+E4oGxYcP3vgZe/8+d0jnpTpvPQY=", "article"=>{"title"=>"hey", "body"=>"gfhff", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x54fbb50 @original_filename="beast.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"beast.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:C:/Users/jasbeer/AppData/Local/Temp/RackMultipart20150612-6776-16puolb>>}, "commit"=>"Update Article", "id"=>"16"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 14.0ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: image):
+  app/controllers/articles_controller.rb:41:in `update'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started PUT "/articles/16" for 127.0.0.1 at 2015-06-12 11:30:47 +0530
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kIA1Ygf94q/PtUr+E4oGxYcP3vgZe/8+d0jnpTpvPQY=", "article"=>{"title"=>"hey", "body"=>"gfhff", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x5557770 @original_filename="beast.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"beast.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:C:/Users/jasbeer/AppData/Local/Temp/RackMultipart20150612-6776-1r72xnf>>}, "commit"=>"Update Article", "id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/b878bc127cdb631d4fea3580fccceaa020150612-6776-2hxuvs.png"
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/b878bc127cdb631d4fea3580fccceaa020150612-6776-114cjb7.png"
+  [1m[35m (4.0ms)[0m  UPDATE "articles" SET "image_file_name" = 'beast.png', "image_content_type" = 'image/png', "image_file_size" = 27720, "image_updated_at" = '2015-06-12 06:00:47.314844', "updated_at" = '2015-06-12 06:00:47.848874' WHERE "articles"."id" = 16
+  [1m[36m (83.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/articles/16
+Completed 302 Found in 757.0ms (ActiveRecord: 89.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (6.0ms)
+  Rendered articles/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 42.0ms (Views: 27.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:48 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16/edit" for 127.0.0.1 at 2015-06-12 11:30:58 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered articles/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 25.0ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:58 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:30:59 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started PUT "/articles/16" for 127.0.0.1 at 2015-06-12 11:31:18 +0530
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kIA1Ygf94q/PtUr+E4oGxYcP3vgZe/8+d0jnpTpvPQY=", "article"=>{"title"=>"hey", "body"=>"gfhff", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x3a0e7f8 @original_filename="beast.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"beast.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:C:/Users/jasbeer/AppData/Local/Temp/RackMultipart20150612-6776-1ski7e5>>}, "commit"=>"Update Article", "id"=>"16"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/b878bc127cdb631d4fea3580fccceaa020150612-6776-1wwfcla.png"
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/b878bc127cdb631d4fea3580fccceaa020150612-6776-l4rcli.png"
+  [1m[35m (4.0ms)[0m  UPDATE "articles" SET "image_updated_at" = '2015-06-12 06:01:18.936653', "image_file_name" = 'beast.png', "updated_at" = '2015-06-12 06:01:19.184667' WHERE "articles"."id" = 16
+[paperclip] deleting C:/RailsInstaller/blogg/public/system/articles/images/000/000/016/original/beast.png
+  [1m[36m (74.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/articles/16
+Completed 302 Found in 432.0ms (ActiveRecord: 79.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 27.0ms (Views: 22.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:31:19 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:31:20 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:31:20 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:31:20 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:36:40 +0530
+Connecting to database specified by database.yml
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (7.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (25.0ms)
+  Rendered articles/show.html.erb within layouts/application (142.0ms)
+Completed 200 OK in 285.0ms (Views: 225.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /application.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /tags.css - 304 Not Modified (19ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /comments.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /screen.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /articles.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /articles.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /tags.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:36:41 +0530
+Served asset /application.js - 304 Not Modified (25ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 26.0ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:17 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:37:53 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (6.0ms)
+  Rendered articles/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 29.0ms (Views: 26.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:37:54 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:40:49 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (7.0ms)
+  Rendered articles/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 58.0ms (Views: 52.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:40:49 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:40:49 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:40:49 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:40:49 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:40:50 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:40:50 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:40:50 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:40:50 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:40:50 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:40:50 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:40:50 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:41:59 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 26.0ms (Views: 23.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:41:59 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:41:59 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:41:59 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:41:59 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:41:59 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:00 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:00 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:00 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:00 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:00 +0530
+Served asset /tags.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:00 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16/edit" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered articles/_form.html.erb (8.0ms)
+  Rendered articles/edit.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 40.0ms (Views: 38.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:05 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started PUT "/articles/16" for 127.0.0.1 at 2015-06-12 11:42:28 +0530
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kIA1Ygf94q/PtUr+E4oGxYcP3vgZe/8+d0jnpTpvPQY=", "article"=>{"title"=>"hey", "body"=>"gfhff", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x387a530 @original_filename="48691_More-Golden-Temple-Wallpapers-Download_1600x1200.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"48691_More-Golden-Temple-Wallpapers-Download_1600x1200.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:C:/Users/jasbeer/AppData/Local/Temp/RackMultipart20150612-5616-gzqu7n>>}, "commit"=>"Update Article", "id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/ae97e4476d35e2e184bff7119ea4dc9c20150612-5616-f6derj.jpg"
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/ae97e4476d35e2e184bff7119ea4dc9c20150612-5616-vtf636.jpg"
+  [1m[36m (4.0ms)[0m  [1mUPDATE "articles" SET "image_file_name" = '48691_More-Golden-Temple-Wallpapers-Download_1600x1200.jpg', "image_content_type" = 'image/jpeg', "image_file_size" = 262066, "image_updated_at" = '2015-06-12 06:12:28.792966', "updated_at" = '2015-06-12 06:12:29.089983' WHERE "articles"."id" = 16[0m
+[paperclip] deleting C:/RailsInstaller/blogg/public/system/articles/images/000/000/016/original/beast.png
+  [1m[35m (111.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/16
+Completed 302 Found in 578.0ms (ActiveRecord: 116.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 25.0ms (Views: 24.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:29 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:30 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:30 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:30 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16/edit" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered articles/_form.html.erb (9.0ms)
+  Rendered articles/edit.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 27.0ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:42 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:43 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:43 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:43 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:42:43 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started PUT "/articles/16" for 127.0.0.1 at 2015-06-12 11:43:02 +0530
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kIA1Ygf94q/PtUr+E4oGxYcP3vgZe/8+d0jnpTpvPQY=", "article"=>{"title"=>"hey", "body"=>"gfhff", "tag_list"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x3b75808 @original_filename="beast.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[image]\"; filename=\"beast.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:C:/Users/jasbeer/AppData/Local/Temp/RackMultipart20150612-5616-npa93o>>}, "commit"=>"Update Article", "id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/b878bc127cdb631d4fea3580fccceaa020150612-5616-1bq7q47.png"
+Command :: file -b --mime "C:/Users/jasbeer/AppData/Local/Temp/b878bc127cdb631d4fea3580fccceaa020150612-5616-1y2ryvo.png"
+  [1m[36m (5.0ms)[0m  [1mUPDATE "articles" SET "image_file_name" = 'beast.png', "image_content_type" = 'image/png', "image_file_size" = 27720, "image_updated_at" = '2015-06-12 06:13:02.938919', "updated_at" = '2015-06-12 06:13:03.223935' WHERE "articles"."id" = 16[0m
+[paperclip] deleting C:/RailsInstaller/blogg/public/system/articles/images/000/000/016/original/48691_More-Golden-Temple-Wallpapers-Download_1600x1200.jpg
+  [1m[35m (87.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/16
+Completed 302 Found in 511.0ms (ActiveRecord: 92.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 30.0ms (Views: 27.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:43:03 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:43:04 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:43:04 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:43:04 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/" for 127.0.0.1 at 2015-06-12 11:44:19 +0530
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" 
+  Rendered articles/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 11.0ms (Views: 10.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:19 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:19 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:19 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:19 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:19 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:20 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:20 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:20 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:20 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:20 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:20 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/18" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "18"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 18
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 18[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 18
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1
+  Rendered articles/_comment.html.erb (2.0ms)
+  Rendered articles/show.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 51.0ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /screen.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /articles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2015-06-12 11:44:26 +0530
+
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  actionpack (3.2.21) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.21) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.21) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.21) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.21) lib/rails/engine.rb:484:in `call'
+  railties (3.2.21) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.21) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/articles/18" for 127.0.0.1 at 2015-06-12 11:45:42 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "18"]]
+  Rendered articles/show.html.erb within layouts/application (35.0ms)
+Completed 500 Internal Server Error in 41.0ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x55316e8>:0x3b98aa0>):
+    3:   <% if @article.image.exists? %>
+    4:       <%= image_tag @article.image.url %><br/>
+    5:   <% end %>
+    6:   <%= f.label :image, "Attach a New Image" %><br />
+    7:   <%= f.file_field :image %>
+    8: </p>
+    9: 
+  app/views/articles/show.html.erb:6:in `_app_views_articles_show_html_erb__556903386_31283844'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.0ms)
+
+
+Started GET "/articles/18" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "18"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 18[0m
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 18
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 18[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (2.0ms)
+  Rendered articles/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 27.0ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /tags.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /tags.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:19 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:46:35 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 35.0ms (Views: 29.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:35 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:35 +0530
+Served asset /tags.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:35 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:35 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:35 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:46:35 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:36 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:36 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:36 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:36 +0530
+Served asset /tags.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:46:36 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" [0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 10.0ms (Views: 9.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:47:14 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" 
+  Rendered articles/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 11.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:48:29 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:48:30 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:48:30 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:48:30 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:48:30 +0530
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/articles/" for 127.0.0.1 at 2015-06-12 11:52:25 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" [0m
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 22.0ms (Views: 11.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:25 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:25 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:25 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:25 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:26 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:26 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:26 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:26 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:26 +0530
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:26 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:26 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (6.0ms)
+  Rendered articles/show.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 71.0ms (Views: 41.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:52:28 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:53:56 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (6.0ms)
+  Rendered articles/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 34.0ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:53:56 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:53:56 +0530
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:53:56 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:53:56 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:53:56 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:53:57 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:53:57 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:53:57 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:53:57 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:53:57 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:53:57 +0530
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/system/articles/images/000/000/016/medium/beast.png?1434089582" for 127.0.0.1 at 2015-06-12 11:53:57 +0530
+
+ActionController::RoutingError (No route matches [GET] "/system/articles/images/000/000/016/medium/beast.png"):
+  actionpack (3.2.21) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.21) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.21) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.21) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.21) lib/rails/engine.rb:484:in `call'
+  railties (3.2.21) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.21) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:54:01 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (3.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (8.0ms)
+  Rendered articles/show.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 34.0ms (Views: 30.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:54:01 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:54:01 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:54:01 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:54:01 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:54:01 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:54:01 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:54:02 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:54:02 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:54:02 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:54:02 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:54:02 +0530
+Served asset /tags.js - 304 Not Modified (1ms)
+
+
+Started GET "/system/articles/images/000/000/016/medium/beast.png?1434089582" for 127.0.0.1 at 2015-06-12 11:54:02 +0530
+
+ActionController::RoutingError (No route matches [GET] "/system/articles/images/000/000/016/medium/beast.png"):
+  actionpack (3.2.21) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.21) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.21) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.21) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.21) lib/rails/engine.rb:484:in `call'
+  railties (3.2.21) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.21) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:56:04 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (6.0ms)
+  Rendered articles/show.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 47.0ms (Views: 38.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:56:04 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:56:04 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:56:04 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:56:04 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:56:04 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:56:04 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:56:05 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:56:05 +0530
+Served asset /articles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:56:05 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:56:05 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:56:05 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" 
+  Rendered articles/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32.0ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /articles.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:12 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (6.0ms)
+  Rendered articles/show.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 42.0ms (Views: 36.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/system/articles/images/000/000/016/medium/beast.png?1434089582" for 127.0.0.1 at 2015-06-12 11:58:20 +0530
+
+ActionController::RoutingError (No route matches [GET] "/system/articles/images/000/000/016/medium/beast.png"):
+  actionpack (3.2.21) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.21) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.21) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.21) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.21) lib/rails/engine.rb:484:in `call'
+  railties (3.2.21) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.21) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 29.0ms (Views: 26.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/system/articles/images/000/000/016/medium/beast.png?1434089582" for 127.0.0.1 at 2015-06-12 11:58:23 +0530
+
+ActionController::RoutingError (No route matches [GET] "/system/articles/images/000/000/016/medium/beast.png"):
+  actionpack (3.2.21) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.21) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.21) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.21) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.21) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.21) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.21) lib/rails/engine.rb:484:in `call'
+  railties (3.2.21) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.21) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.21/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 11:58:48 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (4.0ms)
+  Rendered articles/show.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 29.0ms (Views: 26.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:48 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:48 +0530
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:48 +0530
+Served asset /articles.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:48 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 11:58:49 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:49 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:49 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:49 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:49 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:49 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 11:58:49 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", "16"]]
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16[0m
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Warning. Error encountered while saving cache C:/RailsInstaller/blogg/tmp/cache/sass/adb546b9b386fef70bff6d868b41b6d2fb5ed986/styles.css.scssc: can't dump anonymous class #<Class:0x4293180>
+Compiled styles.css  (30ms)  (pid 5616)
+Compiled application.css  (91ms)  (pid 5616)
+Completed 200 OK in 233.0ms (Views: 230.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /styles.css - 200 OK (3ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /articles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:41 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/18" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "18"]]
+  [1m[35mTag Load (0.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 18
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 18[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 18
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 18 LIMIT 1
+  Rendered articles/_comment.html.erb (2.0ms)
+  Rendered articles/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 28.0ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Served asset /styles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:50 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:51 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:51 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:51 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:51 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 12:03:51 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/articles/16" for 127.0.0.1 at 2015-06-12 12:07:05 +0530
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", "16"]]
+  [1m[35mTag Load (1.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 16
+  Rendered comments/_form.html.erb (2.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = 16[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = 16
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 16 LIMIT 1[0m
+  Rendered articles/_comment.html.erb (5.0ms)
+  Rendered articles/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 37.0ms (Views: 29.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:05 +0530
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:05 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:05 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:05 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:05 +0530
+Served asset /styles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:05 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:06 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:06 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:06 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:06 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:06 +0530
+Served asset /tags.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:06 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2015-06-12 12:07:19 +0530
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (3.0ms)
+  Rendered articles/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 26.0ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/screen.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:19 +0530
+Served asset /screen.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:19 +0530
+Served asset /tags.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:19 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:19 +0530
+Served asset /styles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:19 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-12 12:07:19 +0530
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:20 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:20 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:20 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:20 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:20 +0530
+Served asset /tags.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-12 12:07:20 +0530
+Served asset /application.js - 304 Not Modified (0ms)
